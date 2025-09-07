@@ -1,0 +1,69 @@
+/* src/components/SvgParallaxScroll.css */
+/*
+  IMPORTANT NOTE on Font Import:
+  It's generally better to put font imports in your global CSS (e.g., src/index.css)
+  or in your public/index.html to avoid it being processed multiple times
+  or in ways that might not be optimal for performance.
+  For now, we'll include it here for completeness of this component.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+/*
+  IMPORTANT NOTE on body, html STYLES:
+  These styles are very global. If your "About" page is part of a larger application
+  with its own global styles, these might conflict or override them.
+  Consider scoping these styles (e.g., by applying them to a wrapper div specific
+  to this component) or integrating them carefully with your existing global styles.
+  The background color and font settings here will affect the entire page if not handled.
+*/
+/*
+body, html {
+  width:100%;
+  height:100%;
+  background:#111b29;
+  font-family: 'Montserrat', sans-serif;
+  font-size:99px;
+  text-align:center;
+}
+*/
+
+/* Component-specific styles */
+.parallax-container { /* We'll add a wrapper for better scoping of global-like styles */
+  width:100%;
+  /* The effect relies on body/html height for scrollDist calculation,
+     so if not full page, this needs careful thought.
+     For now, let's assume it aims for a full section feel. */
+  background:#f5f7f9;
+  font-family: 'Montserrat', sans-serif;
+  text-align:center;
+  position: relative; /* Needed for .scrollDist if it's absolute */
+}
+
+.scrollDist {
+  /* position:absolute; */ /* From your original CSS. If absolute, its parent needs position:relative */
+  width:100%;
+  height:120vh; /* Changed from 200% to 200vh for more reliable full viewport height scrolling */
+                 /* This div creates the scrollable length */
+}
+
+.parallax-main-content { /* Renamed from 'main' to avoid conflict with HTML <main> tag if used elsewhere */
+  position:fixed;
+  background:#fff; /* This is the white background of the SVG area */
+  width:100%;
+  max-width:1360px; /* SVG viewport width */
+  height:100%;
+  top:0;
+  left:50%;
+  transform: translateX(-50%);
+  /* overflow: hidden; /* Might be good to prevent SVG elements from showing outside during extreme parallax */
+}
+
+/* Styling for SVG text elements, if you want to ensure the font applies */
+.parallax-main-content svg text {
+  font-size: 99px; /* From your body,html styles, applied more specifically */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.parallax-main-content svg .arrow {
+  cursor: pointer; /* Make arrow look clickable */
+}

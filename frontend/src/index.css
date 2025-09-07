@@ -1,0 +1,581 @@
+ /* --- START OF COMPLETE CSS --- */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  height: 100%;
+  overflow-x: hidden;
+  padding-top: 65px; /* ACCOMMODATES NEW NAVBAR HEIGHT */
+}
+
+/* =================================== */
+/* === NEW NAVBAR STYLES START HERE === */
+/* =================================== */
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; /* Modern: White background */
+  padding: 0 25px; /* Horizontal padding */
+  color: #333; /* Default text color for navbar content */
+  position: fixed;
+  width: 100%;   /* Full width */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 65px; /* New navbar height */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Left Section (Logo) */
+.navbar-left {
+  flex-shrink: 0;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-image {
+  height: 35px; /* Adjust */
+  width: auto;
+  margin-right: 8px;
+}
+
+.logo-text {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #0056b3; /* Example brand color */
+}
+
+/* Center Section (Navigation Links) */
+.navbar-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  margin: 0 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #007bff;
+  background-color: #e9ecef;
+}
+
+.nav-link.active-nav-link { /* For NavLink active state */
+  color: #007bff;
+  font-weight: 600;
+}
+.nav-link.active-nav-link::after,
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background-color: #007bff;
+}
+.nav-link:not(.active-nav-link):hover::after {
+   /* Clears any default if not desired, or set specific style */
+}
+
+/* Right Section (User/Login) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* General Button Styling for Navbar Actions */
+.nav-action-btn,
+.logout-btn.navbar-logout-btn { /* Added .navbar-logout-btn for specificity if needed for logout in navbar */
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nav-action-btn:hover,
+.logout-btn.navbar-logout-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* Login Button Specifics in Navbar */
+.login-btn.nav-action-btn {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+.login-btn.nav-action-btn:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Logout Button Specifics in Navbar - applies to <button className="logout-btn navbar-logout-btn" > */
+.logout-btn.navbar-logout-btn {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+.logout-btn.navbar-logout-btn:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+/* =================================== */
+/* === NEW NAVBAR STYLES END HERE === */
+/* =================================== */
+
+
+/* Welcome Section - YOUR EXISTING STYLES */
+.welcome {
+  text-align: center;
+  padding: 50px 20px;
+  background: url('https://res.cloudinary.com/dnhlil4g8/image/upload/v1741871879/gatizzqsaharjtyynvct.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+  color: rgb(18, 1, 1);
+}
+
+.welcome h1 {
+  font-size: 36px;
+  color:#2A3B4D;
+}
+
+.welcome p {
+  font-size: 18px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Services/Benefits Section - YOUR EXISTING STYLES */
+.services { /* General container for services, if any */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 50px 20px;
+  background-color: #eef2f3;
+  
+}
+
+/* Your specific service card styles */
+.services .service-card { /* This is more specific than the one below if it was standalone */
+  width: 30%; /* Consider changing to flex-basis for better flex behavior */
+  background: #fff;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added background-color */
+}
+
+.services .service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: #eef7ff;
+}
+
+.services .service-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #2d89ef;
+  transition: color 0.3s ease;
+}
+
+.services .service-card:hover h3 {
+  color: #0056b3;
+}
+
+.services .service-card p {
+  font-size: 16px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.services .service-card:hover p {
+  color: #333;
+}
+
+/* Flex container for services if you have a wrapper like .services-container */
+.services .services-container { /* Assuming .services is the parent section */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Or space-around, center */
+  gap: 20px;
+  
+}
+
+/* Individual service card if it's a direct child of .services-container */
+/* If .service-card is used, styles above will apply. This is an alternative structure */
+
+.service-card {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  background: #fff;          
+  margin: 10px;  
+  padding: 20px; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);  
+  border-radius: 10px;  
+}
+.service-card img {
+  width: 100px;
+  height: auto;
+}
+
+
+
+/* Best Button Styling - YOUR EXISTING STYLES (Example general CTA button) */
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+  box-shadow: 0px 4px 10px rgba(255, 126, 95, 0.4);
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 14px rgba(255, 126, 95, 0.6);
+}
+
+
+/* Team Section - YOUR EXISTING STYLES */
+.team {
+  padding: 50px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.team h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.team .team-member {
+  display: inline-block; /* For side-by-side layout */
+  width: 200px; /* Adjust as needed */
+  margin: 20px;
+  text-align: center;
+}
+
+.team .team-member img {
+  width: 120px; /* Was 100px, then 120px in your provided CSS */
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover; /* Good addition */
+}
+
+.team .team-member h4 {
+  font-size: 18px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.team .team-member p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Footer - YOUR EXISTING STYLES */
+.footer {
+  background-color: #2d89ef;
+  color: rgb(1, 106, 132);
+  text-align: center;
+  padding: 20px;
+}
+
+.footer a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Auth Form Styles - YOUR EXISTING STYLES */
+.auth-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgb(125, 123, 123); /* Added from later auth-form style */
+  border: 1px solid #08135a;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Added from later auth-form style */
+}
+
+.auth-form input { /* General input style from first auth-form block */
+  display: block;
+  width: 100%; /* Ensures it takes full width of its parent */
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box; /* Good practice for inputs */
+}
+
+.auth-form button.submit-btn { /* More specific selector for the submit button */
+  background: #6c5ce7;
+  color: rgb(168, 87, 87);
+  border: none;
+  padding: 12px; /* Was 0.5rem 1rem, then 12px */
+  width: 100%; /* From later style */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem; /* From later style */
+  transition: background 0.3s; /* From later style */
+}
+.auth-form button.submit-btn:hover {
+  background: #5649c0; /* From later style */
+}
+
+/* Error and Form Group styles from more detailed auth-form block */
+.form-group { /* For wrapping label and input if you use it */
+  margin-bottom: 1.5rem;
+}
+.error-input { /* Class to add to input on error */
+  border-color: #ff4757 !important; /* Important to override other border styles */
+}
+.error-message { /* For displaying error messages */
+  color: #ff4757;
+  font-size: 0.8rem;
+  margin-top: 0.5rem; /* Space above the message if it's after input */
+  display: block; /* Ensure it takes its own line */
+}
+/* General error text style from first auth-form block, can be used with .error-message */
+.error {
+  color: #d63031; /* Slightly different red, choose one or use .error-message */
+  font-size: 0.9rem;
+  margin-top: -0.5rem; /* If placed directly under input before margin-bottom */
+  margin-bottom: 1rem;
+}
+
+.login-redirect { /* From later auth-form style */
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #636e72;
+}
+.login-redirect a {
+  color: #6c5ce7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+/* User section styles - YOUR EXISTING STYLES (these apply to the navbar user section) */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Your original gap */
+}
+
+.username {
+  font-weight: 500;
+  color: #333; /* Will be applied in the new navbar */
+}
+
+.user-avatar { /* Your original avatar style */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  /* New navbar might override with its own .user-avatar if more specific or loaded later,
+     but the new navbar CSS also includes .user-avatar styles. Let's ensure they align.
+     The new navbar .user-avatar is 36px with an optional border. We can adjust.
+  */
+}
+/* Ensuring new navbar avatar styles take precedence or are consistent */
+.Navbar .user-avatar { /* Specific to avatar inside .Navbar */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd; /* Subtle border */
+}
+
+
+/* Your existing Login and Logout buttons IF USED OUTSIDE THE NAVBAR */
+/* These might need to be made more specific if they are ONLY for outside navbar */
+.login-btn:not(.nav-action-btn) { /* LOGIN BUTTON (NON-NAVBAR) */
+  background: #6c5ce7; /* Your original purple */
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.3s;
+  border: none; /* Assuming no border for this one */
+}
+.login-btn:not(.nav-action-btn):hover {
+  background: #5649c0;
+}
+
+.logout-btn:not(.navbar-logout-btn) { /* LOGOUT BUTTON (NON-NAVBAR) */
+  background: #ff4757; /* Your original red */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.logout-btn:not(.navbar-logout-btn):hover {
+  background: #ff6b81;
+}
+
+
+/* Get Involved Section - YOUR EXISTING STYLES */
+.get-involved-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+.get-involved-section h2 {
+    font-size: 2.2em;
+    color: #0056b3;
+    margin-bottom: 40px;
+}
+.involvement-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+.involvement-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px 20px;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: center;
+}
+.involvement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.involvement-card.highlighted-card {
+    border-color: #ac9f9e; /* Was E74C3C - you changed this, keeping your change */
+}
+.involvement-icon-wrapper {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #e7f3fe;
+}
+.involvement-card:nth-child(1) .involvement-icon-wrapper { background-color: #fdedec; }
+.involvement-card:nth-child(2) .involvement-icon-wrapper { background-color: #eaf2f8; }
+.involvement-card:nth-child(3) .involvement-icon-wrapper { background-color: #e8f5e9; }
+.involvement-card:nth-child(4) .involvement-icon-wrapper { background-color: #e0f0ff; }
+.involvement-card:nth-child(5) .involvement-icon-wrapper { background-color: #eceff1; }
+
+.involvement-card h3 {
+    font-size: 1.25em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.involvement-card p {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+.involvement-button {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    margin-top: auto;
+}
+.involvement-card:nth-child(1) .involvement-button { background-color: #E74C3C; }
+.involvement-card:nth-child(2) .involvement-button { background-color: #3498DB; }
+.involvement-card:nth-child(3) .involvement-button { background-color: #28A745; }
+.involvement-card:nth-child(4) .involvement-button { background-color: #0077B5; }
+.involvement-card:nth-child(5) .involvement-button { background-color: #34495E; }
+
+.involvement-button:hover {
+    opacity: 0.85;
+}
+
+/* Responsive adjustments for Get Involved Section */
+@media (max-width: 1200px) {
+    .involvement-card {
+        width: calc(33.333% - 20px);
+    }
+}
+@media (max-width: 992px) {
+    .involvement-card {
+        width: calc(50% - 15px);
+    }
+}
+@media (max-width: 600px) {
+    .involvement-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Stand out card styles (if used separately, ensure no conflict with service-card) */
+.why-we-stand-out .stand-out-container { /* Assuming .why-we-stand-out is a parent section */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.stand-out-card {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  /* Add specific background, padding, shadow for stand-out-card if different from service-card */
+}
+.stand-out-card img {
+  width: 100px;
+  height: auto;
+}
+
+
+/* --- END OF COMPLETE CSS --- */
